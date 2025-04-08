@@ -1,0 +1,40 @@
+<RootWidget>:
+    orientation: "vertical"
+    padding: 20
+    spacing: 20
+
+    MDLabel:
+        text: "Управление модемом"
+        halign: "center"
+        font_style: "H4"
+
+    MDRaisedButton:
+        text: "Статус интернета"
+        on_press: app.check_internet_status()
+        size_hint: 1, None
+        height: "48dp"
+
+    MDRaisedButton:
+        text: "Переключить интернет"
+        on_press: app.toggle_internet()
+        size_hint: 1, None
+        height: "48dp"
+
+    MDRaisedButton:
+        text: "Последнее SMS"
+        on_press: app.show_last_sms()
+        size_hint: 1, None
+        height: "48dp"
+
+    ScrollView:
+        MDLabel:
+            id: status_label
+            text: ""
+            halign: "center"
+            size_hint_y: None
+            height: self.texture_size[1]
+            padding: 10, 10
+
+    MDProgressBar:
+        id: progress
+        value: 0
